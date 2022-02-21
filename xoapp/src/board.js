@@ -4,6 +4,7 @@ import  Square from './square'
 
 
 class Board extends React.Component {
+
     renderSquare(i) {
         return(
             <Square
@@ -13,18 +14,17 @@ class Board extends React.Component {
         );
     }
 
-    createTable(){
+    createTable(props){
         let board  = []
         let count = 0
-        for (let i = 0; i < 3; i++) { //ใส่ข้อมูลจาก user
+         for (let i = 0; i < parseInt(this.props.input); i++) { //ใส่ข้อมูลจาก user
             let row = []
-            for (let j = 0; j < 3; j++) { //ใส่ข้อมูลจาก user
+            for (let j = 0; j < parseInt(this.props.input); j++) { //ใส่ข้อมูลจาก user
                 row.push(
                     this.renderSquare(count)
                 )
                 count += 1
             }
-            count += 1
             board.push(<div className="board-row">{row}</div>)
         }
         return board
