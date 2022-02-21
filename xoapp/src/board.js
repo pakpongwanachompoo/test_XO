@@ -13,24 +13,27 @@ class Board extends React.Component {
         );
     }
 
+    createTable(){
+        let board  = []
+        let count = 0
+        for (let i = 0; i < 3; i++) { //ใส่ข้อมูลจาก user
+            let row = []
+            for (let j = 0; j < 3; j++) { //ใส่ข้อมูลจาก user
+                row.push(
+                    this.renderSquare(count)
+                )
+                count += 1
+            }
+            count += 1
+            board.push(<div className="board-row">{row}</div>)
+        }
+        return board
+    }
+
     render() {
         return (
             <div>
-                <div className="board-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </div>
+                {this.createTable()}
             </div>
         );
     }

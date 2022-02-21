@@ -45,6 +45,14 @@ class Game extends React.Component {
         const current = history[this.state.stepNumber];
         const winner = CalculateWinner(current.squares);
 
+        <form>
+          <label>
+            Name:
+            <input type="text" name="name" />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+
         const moves = history.map((step, move) => {
             const desc = move ?
               'Go to move #' + move :
@@ -55,6 +63,7 @@ class Game extends React.Component {
               </li>
             );
           });
+
         
         let status;
         if(winner) {
